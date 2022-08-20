@@ -1,9 +1,9 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 Cargo.toml
 README.md
 docs/DefaultApi.md
+docs/EndpointResponseInner.md
 docs/SearchCondition.md
 docs/SearchRequest.md
 git_push.sh
@@ -11,6 +11,7 @@ src/apis/configuration.rs
 src/apis/default_api.rs
 src/apis/mod.rs
 src/lib.rs
+src/models/endpoint_response_inner.rs
 src/models/mod.rs
 src/models/search_condition.rs
 src/models/search_request.rs
