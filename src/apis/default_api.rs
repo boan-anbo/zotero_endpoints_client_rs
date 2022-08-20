@@ -38,7 +38,7 @@ pub enum SearchItemsPostError {
 
 
 /// Use citation keys or Zotero URIs to add items to the current selected collection.
-pub async fn collection_add_to_current_get(configuration: &configuration::Configuration, cite_key: Option<&str>, uris: Option<&str>) -> Result<Vec<crate::models::EndpointResponseInner>, Error<CollectionAddToCurrentGetError>> {
+pub async fn collection_add_to_current_get(configuration: &configuration::Configuration, cite_key: Option<&str>, uris: Option<&str>) -> Result<crate::models::EndpointResponse, Error<CollectionAddToCurrentGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -101,7 +101,7 @@ pub async fn items_get(configuration: &configuration::Configuration, cite_key: O
     }
 }
 
-pub async fn search_items_post(configuration: &configuration::Configuration, search_request: crate::models::SearchRequest, include_citation: Option<bool>) -> Result<Vec<crate::models::EndpointResponseInner>, Error<SearchItemsPostError>> {
+pub async fn search_items_post(configuration: &configuration::Configuration, search_request: crate::models::SearchRequest, include_citation: Option<bool>) -> Result<crate::models::EndpointResponse, Error<SearchItemsPostError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
