@@ -1,8 +1,8 @@
 [package]
-name = "openapi"
-version = "1.0"
-authors = ["OpenAPI Generator team and contributors"]
-edition = "2018"
+name = "zotero_endpoints_client_rs"
+version = "0.1.0"
+authors = ["Bo An"]
+edition = "2021"
 
 [dependencies]
 serde = "^1.0"
