@@ -1,5 +1,5 @@
-pub mod endpoint_response_inner;
-pub use self::endpoint_response_inner::EndpointResponseInner;
+pub mod endpoint_response;
+pub use self::endpoint_response::EndpointResponse;
 pub mod search_condition;
 pub use self::search_condition::SearchCondition;
 pub mod search_request;

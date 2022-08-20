@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## collection_add_to_current_get
 
-> Vec<crate::models::EndpointResponseInner> collection_add_to_current_get(cite_key, uris)
+> crate::models::EndpointResponse collection_add_to_current_get(cite_key, uris)
 
 
 Use citation keys or Zotero URIs to add items to the current selected collection.
@@ -27,7 +27,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::EndpointResponseInner>**](EndpointResponse_inner.md)
+[**crate::models::EndpointResponse**](EndpointResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 
 ## search_items_post
 
-> Vec<crate::models::EndpointResponseInner> search_items_post(search_request, include_citation)
+> crate::models::EndpointResponse search_items_post(search_request, include_citation)
 
 
 ### Parameters
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<crate::models::EndpointResponseInner>**](EndpointResponse_inner.md)
+[**crate::models::EndpointResponse**](EndpointResponse.md)
 
 ### Authorization
 

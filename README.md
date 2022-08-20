@@ -32,7 +32,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [EndpointResponseInner](docs/EndpointResponseInner.md)
+ - [EndpointResponse](docs/EndpointResponse.md)
  - [SearchCondition](docs/SearchCondition.md)
  - [SearchRequest](docs/SearchRequest.md)
 
