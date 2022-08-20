@@ -1,6 +1,6 @@
 [package]
 name = "zotero_endpoints_client_rs"
-version = "1.0"
+version = "0.1.0"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 
