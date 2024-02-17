@@ -25,14 +25,16 @@ All URIs are relative to *http://127.0.0.1:23119/endpoints*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**collection_add_to_current_get**](docs/DefaultApi.md#collection_add_to_current_get) | **GET** /collection/addToCurrent | 
-*DefaultApi* | [**items_get**](docs/DefaultApi.md#items_get) | **GET** /items | 
-*DefaultApi* | [**search_items_post**](docs/DefaultApi.md#search_items_post) | **POST** /search/items | 
+*CollectionApi* | [**collection_add_to_current**](docs/CollectionApi.md#collection_add_to_current) | **GET** /collection/addToCurrent | 
+*ItemsApi* | [**items_get**](docs/ItemsApi.md#items_get) | **GET** /items | 
+*SearchApi* | [**search_items_post**](docs/SearchApi.md#search_items_post) | **POST** /search/items | 
+*SelectApi* | [**get_selected_attachment_paths**](docs/SelectApi.md#get_selected_attachment_paths) | **GET** /select/attachmentPaths | 
 
 
 ## Documentation For Models
 
  - [EndpointResponse](docs/EndpointResponse.md)
+ - [EndpointResponseWithStringArray](docs/EndpointResponseWithStringArray.md)
  - [SearchCondition](docs/SearchCondition.md)
  - [SearchRequest](docs/SearchRequest.md)
 
