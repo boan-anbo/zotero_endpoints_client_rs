@@ -12,7 +12,7 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SearchRequest {
     #[serde(rename = "joinMode", skip_serializing_if = "Option::is_none")]
     pub join_mode: Option<JoinMode>,
@@ -34,14 +34,14 @@ impl SearchRequest {
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum JoinMode {
     #[serde(rename = "ANY")]
-    ANY,
+    Any,
     #[serde(rename = "ALL")]
-    ALL,
+    All,
 }
 
 impl Default for JoinMode {
     fn default() -> JoinMode {
-        Self::ANY
+        Self::Any
     }
 }
 

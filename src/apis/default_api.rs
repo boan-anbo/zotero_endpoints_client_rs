@@ -15,10 +15,17 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`collection_add_to_current_get`]
+/// struct for typed errors of method [`collection_add_to_current`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CollectionAddToCurrentGetError {
+pub enum CollectionAddToCurrentError {
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_attachment_paths`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetAttachmentPathsError {
     UnknownValue(serde_json::Value),
 }
 
@@ -38,7 +45,7 @@ pub enum SearchItemsPostError {
 
 
 /// Use citation keys or Zotero URIs to add items to the current selected collection.
-pub async fn collection_add_to_current_get(configuration: &configuration::Configuration, cite_key: Option<&str>, uris: Option<&str>) -> Result<crate::models::EndpointResponse, Error<CollectionAddToCurrentGetError>> {
+pub async fn collection_add_to_current(configuration: &configuration::Configuration, cite_key: Option<&str>, uris: Option<&str>) -> Result<crate::models::EndpointResponse, Error<CollectionAddToCurrentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -65,7 +72,35 @@ pub async fn collection_add_to_current_get(configuration: &configuration::Config
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CollectionAddToCurrentGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CollectionAddToCurrentError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get the paths of the attachments of the selected items
+pub async fn get_attachment_paths(configuration: &configuration::Configuration, ) -> Result<crate::models::EndpointResponseWithStringArray, Error<GetAttachmentPathsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/select/attachmentPaths", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetAttachmentPathsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
