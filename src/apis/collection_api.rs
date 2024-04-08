@@ -9,7 +9,6 @@
  */
 
 
-use reqwest;
 
 use crate::apis::ResponseContent;
 use super::{Error, configuration};

@@ -12,8 +12,8 @@
 use reqwest;
 
 use crate::apis::ResponseContent;
-use super::{Error, configuration};
 
+use super::{configuration, Error};
 
 /// struct for typed errors of method [`items_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
